@@ -31,13 +31,13 @@ public class BasicWebCrawler {
                 Elements linksOnPage = document.select("a[href]");
                 Elements imagesOnPage = document.select("img[src");
                 for (Element image : imagesOnPage) {
-                    System.out.println(image.attr("abs:src"));
+                    System.out.println(image.attr("abs:src")); // extracting images on page.
                 }
 
                 //5. For each extracted URL... go back to Step 4.
                 for (Element page : linksOnPage) {
                     if(page.attr("abs:href").contains("https://wiprodigital.com")){
-                        getPageLinks(page.attr("abs:href")); //Same domain links. Need to navigate.
+                        getPageLinks(page.attr("abs:href")); // Same domain links. Need to navigate.
                     }
                     else{
                         System.out.println(page.attr("abs:href")); // printing external links. NO need to navigate.
